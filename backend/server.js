@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB Atlas connection string
-const mongoURI = 'mongodb+srv://janhavikhonde8220:NnzUcuitGxkkheum@cluster0.lwbv4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoURI = 'mongodb+srv://janhavikhonde8220:zsudkeu2KRqBXfNy@cluster0.lwbv4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
 // Connect to MongoDB Atlas
 mongoose.connect(mongoURI)
