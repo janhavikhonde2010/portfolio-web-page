@@ -1,27 +1,24 @@
 const express = require('express');
-const router = express.Router();
 const Contact = require('../models/ContactModel');
+const router = express.Router();
 
-// POST endpoint to handle contact form submissions
+// Handle POST request for contact form submission
 router.post('/', async (req, res) => {
+  const { name, mobile, message } = req.body;
+
+  // Create a new contact entry
+  const newContact = new Contact({
+    name,
+    mobile,
+    message,
+  });
+
   try {
-    const { name, mobile, message } = req.body;
-
-    // Create a new Contact document in MongoDB
-    const newContact = new Contact({
-      name,
-      mobile,
-      message,
-    });
-
-    // Save the contact to the database
+    // Save to database
     await newContact.save();
-
-    // Send a success response
-    res.status(200).send('Message sent successfully!');
+    res.status(200).send('Message received!');
   } catch (error) {
-    console.error(error);
-    res.status(500).send('Something went wrong!');
+    res.status(500).send('Error saving the message.');
   }
 });
 

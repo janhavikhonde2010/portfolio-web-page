@@ -8,12 +8,11 @@ const contactRoute = require('./routes/contactRoute');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors()); // Enable CORS for all origins (customize if needed)
 app.use(bodyParser.json());
 
 // MongoDB Atlas connection string
-const mongoURI = 'mongodb+srv://janhavikhonde8220:zsudkeu2KRqBXfNy@cluster0.lwbv4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-
+const mongoURI = 'mongodb+srv://janhavikhonde8220:IwHJAQwGYkxaZdlA@cluster0.lwbv4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 // Connect to MongoDB Atlas
 mongoose.connect(mongoURI)
   .then(() => console.log('MongoDB connected'))
